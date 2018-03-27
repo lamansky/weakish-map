@@ -20,6 +20,13 @@ The module exposes a single class. Instances of this class have the following me
 * `delete()`
 * `clear()`
 
+Instances also have methods which only work on non-objects:
+
+* `entries()`
+* `forEach()`
+* `keys()`
+* `values()`
+
 ## Example
 
 ```javascript
@@ -34,6 +41,7 @@ const map2 = new WeakishMap()
 map2.set({}, 'value')
 map2.set('key', 'value')
 map2.get('key') // 'value'
+Array.from(map2.keys()) // ['key']
 ```
 
 ## Related

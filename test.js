@@ -87,4 +87,47 @@ describe('WeakishMap', function () {
       assert(!map.has(key))
     })
   })
+
+  describe('entries()', function () {
+    it('should return non-object entries', function () {
+      const map = new WeakishMap()
+      map.set({}, 'object')
+      map.set('key', 'value')
+      assert.strictEqual(JSON.stringify(Array.from(map.entries())), JSON.stringify([['key', 'value']]))
+    })
+  })
+
+  describe('forEach()', function () {
+    it('should operate on non-object entries', function () {
+      const map = new WeakishMap()
+      map.set({}, 'object')
+      map.set('key', 'value')
+
+      let times = 0
+      map.forEach((value, key) => {
+        assert.strictEqual(value, 'value')
+        assert.strictEqual(key, 'key')
+        times++
+      })
+      assert.strictEqual(times, 1)
+    })
+  })
+
+  describe('keys()', function () {
+    it('should return non-object keys', function () {
+      const map = new WeakishMap()
+      map.set({}, 'object')
+      map.set('key', 'value')
+      assert.strictEqual(JSON.stringify(Array.from(map.keys())), JSON.stringify(['key']))
+    })
+  })
+
+  describe('values()', function () {
+    it('should return non-object values', function () {
+      const map = new WeakishMap()
+      map.set({}, 'object')
+      map.set('key', 'value')
+      assert.strictEqual(JSON.stringify(Array.from(map.values())), JSON.stringify(['value']))
+    })
+  })
 })
