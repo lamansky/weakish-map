@@ -1,0 +1,35 @@
+{
+  "name": "weakish-map",
+  "version": "1.0.0",
+  "description": "It’s like WeakMap but it supports non-objects.",
+  "keywords": [
+    "weak",
+    "WeakMap",
+    "scalars"
+  ],
+  "author": "John Lamansky",
+  "license": "MIT",
+  "homepage": "https://github.com/lamansky/weakish-map",
+  "repository": "lamansky/weakish-map",
+  "main": "index.js",
+  "files": [],
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "weakable": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint-config-lamansky": "^1.0.0",
+    "mocha": "^5.0.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "eslintConfig": {
+    "extends": "lamansky",
+    "env": {
+      "mocha": true
+    }
+  }
+}
