@@ -10,6 +10,7 @@ module.exports = class WeakishMap {
   constructor (items) {
     this[_strong] = new Map()
     this[_weak] = new WeakMap()
+    for (const [k, v] of items) this.set(k, v)
   }
 
   [_map] (key) { return weakable(key) ? this[_weak] : this[_strong] }
