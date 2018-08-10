@@ -12,7 +12,20 @@ npm i weakish-map
 
 ## API
 
-The module exposes a single class. Instances of this class have the following methods, which behave just like the corresponding methods on `Map` and `WeakMap`:
+The module exposes a single class.
+
+### Constructor
+
+The constructor supports the following arguments:
+
+1. Optional: `items` (iterable): Initial key-value pairs for the map.
+2. Optional: Object argument:
+    * `StrongMap` (class): Set this if you have a custom Map class you want to use for storing non-objects. Defaults to the built-in `Map`.
+    * `WeakMap` (class): Set this if you have a custom WeakMap class you want to use for storing objects. Defaults to the built-in `WeakMap`.
+
+### Methods
+
+Instances of this class have the following methods, which behave just like the corresponding methods on `Map` and `WeakMap`:
 
 * `get()`
 * `set()`
