@@ -4,7 +4,7 @@ It’s like WeakMap but it supports non-objects.
 
 ## Installation
 
-Requires [Node.js](https://nodejs.org/) 4.0.0 or above.
+Requires [Node.js](https://nodejs.org/) 6.0.0 or above.
 
 ```bash
 npm i weakish-map
