@@ -21,7 +21,9 @@ The constructor supports the following arguments:
 1. Optional: `items` (iterable): Initial key-value pairs for the map.
 2. Optional: Object argument:
     * `StrongMap` (class): Set this if you have a custom Map class you want to use for storing non-objects. Defaults to the built-in `Map`.
+    * `strongMap` (function): A callback that creates a new map for storing non-objects. Defaults to a function that creates a new `StrongMap`.
     * `WeakMap` (class): Set this if you have a custom WeakMap class you want to use for storing objects. Defaults to the built-in `WeakMap`.
+    * `weakMap` (function): A callback that creates a new weak map for storing objects. Defaults to a function that creates a new `WeakMap`.
 
 ### Methods
 

@@ -4,14 +4,14 @@ const weakable = require('weakable')
 
 const _map = Symbol('map')
 const _strong = Symbol('strong')
+const _newWeak = Symbol('newWeak')
 const _weak = Symbol('weak')
-const _WeakMap = Symbol('WeakMap')
 
 module.exports = class WeakishMap {
-  constructor (items = [], {StrongMap: Strong = Map, WeakMap: Weak = WeakMap} = {}) {
-    this[_strong] = new Strong()
-    this[_weak] = new Weak()
-    this[_WeakMap] = Weak
+  constructor (items = [], {StrongMap: Strong = Map, strongMap = () => new Strong(), WeakMap: Weak = WeakMap, weakMap = () => new Weak()} = {}) {
+    this[_strong] = strongMap()
+    this[_weak] = weakMap()
+    this[_newWeak] = weakMap
     for (const [k, v] of items) this.set(k, v)
   }
 
@@ -21,7 +21,7 @@ module.exports = class WeakishMap {
   get (key) { return this[_map](key).get(key) }
   set (key, value) { return this[_map](key).set(key, value) }
   delete (key) { return this[_map](key).delete(key) }
-  clear () { this[_strong].clear(); this[_weak] = new this[_WeakMap]() }
+  clear () { this[_strong].clear(); this[_weak] = this[_newWeak]() }
 
   entries (...args) { return this[_strong].entries(...args) }
   forEach (...args) { return this[_strong].forEach(...args) }
